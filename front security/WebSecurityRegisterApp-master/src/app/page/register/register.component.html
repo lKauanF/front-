@@ -1,0 +1,64 @@
+<div class="register-container">
+  <h2>Registro de Novo Usuário</h2>
+
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" #registerForm="ngForm">
+    <!-- Nome de Usuário -->
+    <div class="form-group">
+      <label for="username">Nome de Usuário:</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="users.username"
+        required
+        placeholder="Digite o nome de usuário"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Senha -->
+    <div class="form-group">
+      <label for="password">Senha:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="users.password"
+        required
+        placeholder="Digite a senha"
+        class="form-control"
+      />
+    </div>
+
+    <!-- Papel -->
+    <div class="form-group">
+      <label for="role">Tipo de Usuário:</label>
+
+      <select
+        id="role"
+        name="role"
+        [(ngModel)]="users.role"
+        required
+        class="form-control"
+      >
+        <option value="user">Usuário Comum</option>
+        <option value="gerente">Gerente</option>
+        <option value="admin">Administrador</option>
+      </select>
+    </div>
+
+    <!-- Botão de Registro -->
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!registerForm.valid"
+    >
+      Registrar
+    </button>
+  </form>
+
+  <!-- Mensagem de Feedback -->
+<!--  <div *ngIf="message" class="alert" [ngClass]="{ 'alert-success': success, 'alert-danger': !success }">-->
+<!--    {{ message }}-->
+<!--  </div>-->
+</div>
